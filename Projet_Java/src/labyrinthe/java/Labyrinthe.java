@@ -2,9 +2,14 @@ package labyrinthe.java;
 
 import java.util.ArrayList;
 
+import vue.Clavier;
+
 public class Labyrinthe {
 
 ArrayList<Piece> cases = new ArrayList<Piece>();
+Piece position;
+Piece sortie;
+
 
 
 public Labyrinthe() {
@@ -106,21 +111,68 @@ public Labyrinthe() {
 	P22.setOuest(P23);
 	P23.setEst(P22);
 			
-	
+	this.position = P13;
+	this.sortie = P17;
 }
 
 
 
 
 
-public void seDeplacer() {
+public boolean seDeplacer() {
 	String txt = "Quelle direction voulez-vous prendre ?\n";
 	txt += " Entrez N pour avancer, S pour reculer, E pour aller à droite, O pour aller à gauche !\n";
+	System.out.println(txt);
+	String reponse = Clavier.entrerClavierString();
+	switch (reponse.toUpperCase()) {
+	case "N":
+		if(this.position.getNord() != null) {
+			this.position = position.getNord();
+			System.out.println("gdhdh");
+		}else {
+			System.out.println("Impossible d'aller dans cette direction");
+		}
+		break;
+	case "S" :
+		if(this.position.getSud() != null) {
+			this.position = position.getSud();
+			System.out.println("Vous allez vers le sud");
+		}else {
+			System.out.println("Impossible d'aller dans cette direction");
+		}
+		break;
+		
 	
+	case "O" :
+		if(this.position.getOuest() != null) {
+			this.position = position.getOuest();
+			System.out.println("gdhdh");
+		}else {
+			System.out.println("Impossible d'aller dans cette direction");
+		}
+		break;
 	
+	case "E" :
+		if(this.position.getEst() != null) {
+			this.position = position.getEst();
+			System.out.println("gdhdh");
+		}else {
+			System.out.println("Impossible d'aller dans cette direction");
+		}
+		break;
+		
+	default :
+		System.out.println("Veuillez entrer les bon caractères.");
+	}
 	
+	if(this.position == this.sortie) {
+		System.out.println("Vous avez gagné !");
+		return false;
+	}
+	
+	return true;	
 	
 }
-//leni t nul
+
 
 }
