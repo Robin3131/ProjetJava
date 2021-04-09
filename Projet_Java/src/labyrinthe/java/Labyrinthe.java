@@ -117,6 +117,6 @@ public void seDeplacer() {
 	
 	
 }
-
+//leni t nul
 
 }
