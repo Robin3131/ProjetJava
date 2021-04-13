@@ -8,6 +8,6 @@ public class Monstre extends EtreVivant {
 	}
 	@Override
 	public void attaquer(EtreVivant e) {
-		
+		e.subirAttaque(degat);
 	}
 }
