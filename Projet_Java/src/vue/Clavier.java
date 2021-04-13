@@ -9,6 +9,10 @@ public class Clavier {
 	    public static String entrerClavierString() {
 	        return scanner.next();
 	    }
+	    
+	    public static int entrerClavierInt() {
+	        return scanner.nextInt();
+	    }
 
 	
 }

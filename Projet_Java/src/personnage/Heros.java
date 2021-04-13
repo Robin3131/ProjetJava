@@ -15,7 +15,7 @@ public class Heros extends EtreVivant {
 	}
 
 	public void nommerHeros() {
-		System.out.println("Comment vouslez vous appeler votre personnage ?");
+		System.out.println("Comment voulez vous appeler votre personnage ?");
 		this.nom = Clavier.entrerClavierString();
 		System.out.println("Bienvenue dans le labyrinthe " + getNom());
 	}
@@ -23,6 +23,17 @@ public class Heros extends EtreVivant {
 	@Override
 	public void attaquer(EtreVivant e) {
 		//if(this.equipement.....)
-		e.subirAttaque(degat);
+		System.out.println("\n"+this.getNom()+" attaque le monstre" );
+		e.subirAttaque(this.degat);		
 	}
+	public void subirAttaque(int dmg) {
+		this.vie -=dmg;
+		if(vie <= 0 ) {
+			System.out.println("Vous mourez");
+		}else
+		{
+			System.out.println("Vous subissez " + dmg + " pts de dégats");
+		}
+	}
+	
 }
