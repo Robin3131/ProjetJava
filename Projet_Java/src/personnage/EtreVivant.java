@@ -10,10 +10,14 @@ public abstract class EtreVivant {
 		degat = 1;
 
 	}
-
-	public void attaquer() {
-		
+	public abstract void attaquer (EtreVivant e);
+	public void subirAttaque(int dmg) {
+		this.vie -=dmg;
+		if(vie <= 0 ) {
+			System.out.println("Le monstre meurt");
+		}else
+		{
+			System.out.println("Vous infligez " + dmg + " pts de dégats");
+		}
 	}
-	
-
 }

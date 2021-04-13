@@ -1,7 +1,7 @@
 package test;
 
 import affrontement.Combat;
-import labyrinthe.java.Labyrinthe;
+//import labyrinthe.java.Labyrinthe;
 import personnage.Heros;
 import personnage.Monstre;
 
@@ -9,7 +9,7 @@ public class Test_combat {
 	public static void main(String[] args) {
 		int test;
 		Combat testC = new Combat();
-		Labyrinthe lab = new Labyrinthe();
+		//Labyrinthe lab = new Labyrinthe();
 		Heros mec = new Heros();
 		for(int i=0;i<10;i++) {
 			test = testC.choixAttaquant();
@@ -19,15 +19,15 @@ public class Test_combat {
 		Monstre monstr = new Monstre();
 		boolean fuir;
 		fuir = false;
-		while(!fuir){
+		while(!fuir) {
 			// voulez vous fuir ?
 			int num = testC.choixAttaquant();
 			if(num== 1) {
-				mec.Attaquer(monstr);
+				mec.attaquer(monstr);
 			}else {
-				monstr.Attaquer(mec);
+				monstr.attaquer(mec);
 			}
-			
+			fuir=true;
 
 		}
 		
