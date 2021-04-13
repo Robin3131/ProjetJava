@@ -2,11 +2,12 @@ package personnage;
 
 import vue.Clavier;
 
-public class Heros {
+public class Heros extends EtreVivant {
 String nom;
 
 public Heros() {
-
+	super(10,1);
+	
 }
 
 public String getNom() {
