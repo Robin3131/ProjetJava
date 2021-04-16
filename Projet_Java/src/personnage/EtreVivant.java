@@ -10,6 +10,9 @@ public abstract class EtreVivant {
 		degat = 1;
 
 	}
+	public int getVie() {
+		return vie;
+	}
 	public abstract void attaquer (EtreVivant e);
 	public abstract void subirAttaque(int dmg);
 }

@@ -30,6 +30,7 @@ public class Heros extends EtreVivant {
 		this.vie -=dmg;
 		if(vie <= 0 ) {
 			System.out.println("Vous mourez");
+			
 		}else
 		{
 			System.out.println("Vous subissez " + dmg + " pts de dégats");
