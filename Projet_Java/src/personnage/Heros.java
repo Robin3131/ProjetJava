@@ -4,16 +4,26 @@ import vue.Clavier;
 
 public class Heros extends EtreVivant {
 	String nom;
+	int vieMax;
 
 	public Heros() {
 		super(10, 1);
-
+		this.vieMax = vie;
 	}
 
 	public String getNom() {
 		return nom;
 	}
-
+	
+	public int getVieMax() {
+		return vieMax;
+	}
+	
+	public void setVieMax(int vieMax) {
+		this.vieMax = vieMax;
+		this.setVie(vieMax);
+	}
+	
 	public void nommerHeros() {
 		System.out.println("Comment voulez vous appeler votre personnage ?");
 		this.nom = Clavier.entrerClavierString();
@@ -28,12 +38,9 @@ public class Heros extends EtreVivant {
 	}
 	public void subirAttaque(int dmg) {
 		this.vie -=dmg;
-		if(vie <= 0 ) {
-			System.out.println("Vous mourez");
-			
-		}else
-		{
-			System.out.println("Vous subissez " + dmg + " pts de dégats");
+		this.setVie(this.vie);
+		if(vie > 0 ) {
+			System.out.println("Vous subissez " + dmg + " pts de dégats \nIl vous reste " + this.getVie() +" point de vie");
 		}
 	}
 	

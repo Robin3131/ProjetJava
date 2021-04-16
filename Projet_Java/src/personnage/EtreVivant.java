@@ -13,6 +13,11 @@ public abstract class EtreVivant {
 	public int getVie() {
 		return vie;
 	}
+	
+	public void setVie(int vie) {
+		this.vie = vie;
+	}
+	
 	public abstract void attaquer (EtreVivant e);
 	public abstract void subirAttaque(int dmg);
 }

@@ -9,6 +9,7 @@ public class Labyrinthe {
 ArrayList<Piece> cases = new ArrayList<Piece>();
 Piece position;
 Piece sortie;
+Piece lastPosition;
 
 
 
@@ -111,13 +112,14 @@ public Labyrinthe() {
 	P22.setOuest(P23);
 	P23.setEst(P22);
 			
+	this.lastPosition = P13;
 	this.position = P13;
 	this.sortie = P17;
 }
 
-
-
-
+public Piece getLastPosition() {
+	return lastPosition;
+}
 
 public boolean seDeplacer() {
 	String txt = "Quelle direction voulez-vous prendre ?\n";
@@ -127,6 +129,7 @@ public boolean seDeplacer() {
 	switch (reponse.toUpperCase()) {
 	case "N":
 		if(this.position.getNord() != null) {
+			this.lastPosition = this.position;
 			this.position = position.getNord();
 			System.out.println("gdhdh");
 		}else {

@@ -16,7 +16,7 @@ public class Monstre extends EtreVivant {
 			System.out.println("Le monstre meurt");
 		}else
 		{
-			System.out.println("Vous infligez " + dmg + " pts de dégats");
+			System.out.println("Vous infligez " + dmg + " pts de dégats" + "\nLe monstre possède maintenant " + this.getVie() + " point de vie");
 		}
 	}
 	

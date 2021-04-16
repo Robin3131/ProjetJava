@@ -12,26 +12,26 @@ public class Test_combat {
 		mec.nommerHeros();
 		//combat commence
 		Combat testC = new Combat();
-		
-		Monstre monstr = new Monstre();
-		boolean fuir;
-		fuir = false;
-		
-		while(!fuir) {
-			// voulez vous fuir ?
-			System.out.println("\n\nVoulez-vous fuir le combat ?\nEntrer 1 pour fuir sinon appuyer sur 0\n");
-			int temp = Clavier.entrerClavierInt();
-			if(temp == 1) {
-				fuir=true;
-			}
-			System.out.println("Vous ne fuyez pas");
-			int num = testC.choixAttaquant();
-			if(num== 1) {
-				mec.attaquer(monstr);
-			}else {
-				monstr.attaquer(mec);
-			}
+		switch(testC.battle(mec)) {
+		case 0:
+			System.out.println("vous fuyez");
+			//lastPosition = position
+			break;
+			
+		case 1:
+			//défaite
+			System.out.println("Défaite");
+			break;
+			
+		case 2:
+			testC.gagnerCombat(mec);
+			//victoire
+			break;
+			
+			
 		}
+		
+		
 		
 }
 }
