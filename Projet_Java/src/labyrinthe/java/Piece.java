@@ -1,10 +1,10 @@
 package labyrinthe.java;
 
 public class Piece {
-	Piece nord;
-	Piece sud;
-	Piece est;
-	Piece ouest;
+	protected Piece nord;
+	protected Piece sud;
+	protected Piece est;
+	protected Piece ouest;
 
 	public Piece() {
 	}
@@ -41,8 +41,5 @@ public class Piece {
 		this.ouest = ouest;
 	}
 
-	public void seDeplacer() {
-
-	}
 
 }

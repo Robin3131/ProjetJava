@@ -5,7 +5,7 @@ import affrontement.Combat;
 import personnage.Heros;
 import personnage.Monstre;
 import vue.Clavier;
-
+/*
 public class Test_combat {
 	public static void main(String[] args) {
 		Heros mec = new Heros();
@@ -34,4 +34,4 @@ public class Test_combat {
 		
 		
 }
-}
+}*/

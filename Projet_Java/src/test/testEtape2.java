@@ -1,15 +1,12 @@
 package test;
 
-import labyrinthe.java.Labyrinthe;
 import personnage.Heros;
 
-public class Test_seDeplacer {
+public class testEtape2 {
 
 	public static void main(String[] args) {
-		//Labyrinthe lab = new Labyrinthe();
 		Heros mec = new Heros();
 		mec.nommerHeros();
 		mec.seDeplacer();
 	}
-
 }
