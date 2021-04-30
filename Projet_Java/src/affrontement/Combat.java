@@ -48,8 +48,41 @@ public class Combat {
 	public void gagnerCombat(Heros h) {
 		h.setVieMax((h.getVieMax() + 1));
 		System.out.println("Vous avez gagné le combat ! \nVous avez maintenant " + h.getVie() + " point de vie");
-		
+		herosDrop(h);
 	}
+	
+	public void herosDrop(Heros H) {
+		//drop d'une armure
+		if(randomDrop(1,7)) {
+			if(randomDrop(1,4)) {
+				//drop rare
+				System.out.println("Drop armure rare");
+			}else {
+				System.out.println("Drop armure");
+			}
+		}else {
+			System.out.println("pas de Drop armure");
+		}
+		//drop d'une arme
+		if(randomDrop(1,7)) {
+			if(randomDrop(1,4)) {
+				//drop rare
+				System.out.println("Drop arme rare");
+			}else {
+				System.out.println("Drop arme");
+			}
+		}else {
+			System.out.println("pas de Drop arme");
+		}
+		//drop money
+		if(randomDrop(1,2)) {
+			System.out.println("money");
+		}else {
+			System.out.println("pas de drop d'argent");
+		}
+	}
+	
+	
 	public boolean randomDrop(int minimum,int maximum) {
 		int Randnum=(int) (Math.random() * maximum + minimum);
 		if (Randnum==minimum) {

@@ -9,7 +9,7 @@ public class Heros extends EtreVivant {
 	int vieMax;
 
 	public Heros() {
-		super(1, 1);
+		super(10, 1);
 		this.vieMax = vie;
 	}
 
