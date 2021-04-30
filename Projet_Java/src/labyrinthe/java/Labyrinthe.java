@@ -118,7 +118,7 @@ public class Labyrinthe {
 	public Piece getSortie() {
 		return sortie;
 	}
-
+	//créer getboutique pour savoir la position de la boutique
 	public Piece getPosition() {
 		return position;
 	}
@@ -135,7 +135,7 @@ public class Labyrinthe {
 		this.lastPosition = lastPosition;
 	}
 
-	public boolean seDeplacer() {
+	/*public boolean seDeplacer() {
 		while (true) {
 			String txt = "Quelle direction voulez-vous prendre ?\n";
 			txt += "Entrez N pour avancer, S pour reculer, E pour aller à droite, O pour aller à gauche !\n";
@@ -193,6 +193,6 @@ public class Labyrinthe {
 
 		}
 
-	}
+	}*/
 
 }

@@ -10,7 +10,7 @@ public class Combat {
 		return (int) (Math.random() * 2 + 1);
 	}
 
-	public void battle(Heros h) {
+	public int battle(Heros h) {
 		Monstre m = new Monstre();
 		System.out.println("Vous tombez sur un monstre ! Le combat commence.");
 
@@ -20,9 +20,8 @@ public class Combat {
 			System.out.println("2. Fuir");
 			int temp = Clavier.entrerClavierInt();
 			if (temp == 2) {
-				//return 0;
-				m.setVie(0);
-				h.fuir();
+				
+				return 0;
 			}
 			if (temp == 1) {
 				System.out.println("Vous choississez de combattre");
@@ -35,21 +34,20 @@ public class Combat {
 
 			}
 			if (h.getVie() <= 0) {
-				//return 2;
-				System.out.println("vous avez perdu");
-				break;
+				
+				//System.out.println("vous avez perdu");
+				return 2;
 			}
 
 		}
-
 		gagnerCombat(h);
+		return 1;
 	}
 	
 
 	public void gagnerCombat(Heros h) {
 		h.setVieMax((h.getVieMax() + 1));
 		System.out.println("Vous avez gagné le combat ! \nVous avez maintenant " + h.getVie() + " point de vie");
-		h.seDeplacer();
 	}
 }
 

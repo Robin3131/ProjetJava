@@ -9,7 +9,7 @@ public class Heros extends EtreVivant {
 	int vieMax;
 
 	public Heros() {
-		super(10, 1);
+		super(1, 1);
 		this.vieMax = vie;
 	}
 
@@ -48,23 +48,29 @@ public class Heros extends EtreVivant {
 		}
 	}
 
-	public void fuir() {
+	public void fuir(Labyrinthe lab) {
 		System.out.println("Vous fuyez le combat, vous revennez à la pièce précédante");
-		Labyrinthe lab = new Labyrinthe();
+		System.out.println("Position actuelle:"+lab.getPosition());
 		lab.setPosition(lab.getLastPosition());
-		lab.seDeplacer();
-
+		System.out.println("Position actuelle:"+lab.getPosition());
 	}
 	
+	public void mourir() {
+		setVieMax(10);
+		//equipement
+	}
 	
 	
 	public boolean seDeplacer() {
 		Labyrinthe lab = new Labyrinthe();
 		Combat combat = new Combat();
-		while (true) {
+		int result=0;
+		while (result!=2) {
 			String txt = "Quelle direction voulez-vous prendre ?\n";
 			txt += "Entrez N pour avancer, S pour reculer, E pour aller à droite, O pour aller à gauche !\n";
 			System.out.println(txt);
+			System.out.println(lab.getLastPosition());
+			System.out.println(lab.getPosition());
 			String reponse = Clavier.entrerClavierString();
 			switch (reponse.toUpperCase()) {
 			case "N":
@@ -72,7 +78,10 @@ public class Heros extends EtreVivant {
 					lab.setLastPosition(lab.getPosition());
 					lab.setPosition(lab.getPosition().getNord());
 					System.out.println("Vous allez au nord\n");
-					combat.battle(this);
+					result=combat.battle(this);
+					if(result==0) {
+						this.fuir(lab);
+					}
 				} else {
 					System.out.println("Impossible d'aller dans cette direction");
 				}
@@ -82,7 +91,10 @@ public class Heros extends EtreVivant {
 					lab.setLastPosition(lab.getPosition());
 					lab.setPosition(lab.getPosition().getSud());
 					System.out.println("Vous allez vers le sud\n");
-					combat.battle(this);
+					result=combat.battle(this);
+					if(result==0) {
+						this.fuir(lab);
+					}
 				} else {
 					System.out.println("Impossible d'aller dans cette direction");
 				}
@@ -93,7 +105,10 @@ public class Heros extends EtreVivant {
 					lab.setLastPosition(lab.getPosition());
 					lab.setPosition(lab.getPosition().getOuest());
 					System.out.println("Vous allez à l'ouest\n");
-					combat.battle(this);
+					result=combat.battle(this);
+					if(result==0) {
+						this.fuir(lab);
+					}
 				} else {
 					System.out.println("Impossible d'aller dans cette direction");
 				}
@@ -104,7 +119,10 @@ public class Heros extends EtreVivant {
 					lab.setLastPosition(lab.getPosition());
 					lab.setPosition(lab.getPosition().getEst());
 					System.out.println("Vous allez à l'est\n");
-					combat.battle(this);
+					result=combat.battle(this);
+					if(result==0) {
+						this.fuir(lab);
+					}
 				} else {
 					System.out.println("Impossible d'aller dans cette direction");
 				}
@@ -118,9 +136,10 @@ public class Heros extends EtreVivant {
 				System.out.println("Vous avez gagné !");
 				return false;
 			}
-
+			
 		}
-
+		mourir();
+		return true;
 	}
 
 }
