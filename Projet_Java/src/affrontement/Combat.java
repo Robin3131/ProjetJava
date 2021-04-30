@@ -48,6 +48,14 @@ public class Combat {
 	public void gagnerCombat(Heros h) {
 		h.setVieMax((h.getVieMax() + 1));
 		System.out.println("Vous avez gagné le combat ! \nVous avez maintenant " + h.getVie() + " point de vie");
+		
+	}
+	public boolean randomDrop(int minimum,int maximum) {
+		int Randnum=(int) (Math.random() * maximum + minimum);
+		if (Randnum==minimum) {
+			return true;
+		}
+		return false;
 	}
 }
 
