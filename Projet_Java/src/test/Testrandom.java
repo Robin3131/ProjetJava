@@ -8,7 +8,7 @@ public class Testrandom {
 		Combat combat = new Combat();
 		int b=0;
 		for(int i=0;i<1000;i++) {
-			if(combat.randomDrop(1,150)) {
+			if(combat.randomDrop(1,11)) {
 				b=b+1;
 			}
 		}

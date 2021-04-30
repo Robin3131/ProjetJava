@@ -60,25 +60,15 @@ public class Combat {
 			}else {
 				System.out.println("Drop armure");
 			}
-		}else {
-			System.out.println("pas de Drop armure");
-		}
-		//drop d'une arme
-		if(randomDrop(1,7)) {
+		}else if(randomDrop(1,7)) {
 			if(randomDrop(1,4)) {
 				//drop rare
 				System.out.println("Drop arme rare");
 			}else {
 				System.out.println("Drop arme");
 			}
-		}else {
-			System.out.println("pas de Drop arme");
-		}
-		//drop money
-		if(randomDrop(1,2)) {
+		}else {//drop argent
 			System.out.println("money");
-		}else {
-			System.out.println("pas de drop d'argent");
 		}
 	}
 	

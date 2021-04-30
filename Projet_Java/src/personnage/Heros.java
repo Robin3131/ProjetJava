@@ -3,14 +3,18 @@ package personnage;
 import affrontement.Combat;
 import labyrinthe.java.Labyrinthe;
 import vue.Clavier;
+import equipement.Arme;
+
 
 public class Heros extends EtreVivant {
-	String nom;
-	int vieMax;
+	private String nom;
+	private int vieMax;
+	private Arme arme;//= Arme.ARMEB
 
 	public Heros() {
 		super(10, 1);
 		this.vieMax = vie;
+		this.arme.ordinal();
 	}
 
 	public String getNom() {
@@ -25,7 +29,10 @@ public class Heros extends EtreVivant {
 		this.vieMax = vieMax;
 		this.setVie(vieMax);
 	}
-
+	//setArme
+	public void setArme(Arme a) {
+		this.arme=a;
+	}
 	public void nommerHeros() {
 		System.out.println("Comment voulez vous appeler votre personnage ?");
 		this.nom = Clavier.entrerClavierString();
@@ -69,8 +76,6 @@ public class Heros extends EtreVivant {
 			String txt = "Quelle direction voulez-vous prendre ?\n";
 			txt += "Entrez N pour avancer, S pour reculer, E pour aller à droite, O pour aller à gauche !\n";
 			System.out.println(txt);
-			System.out.println(lab.getLastPosition());
-			System.out.println(lab.getPosition());
 			String reponse = Clavier.entrerClavierString();
 			switch (reponse.toUpperCase()) {
 			case "N":
@@ -141,5 +146,25 @@ public class Heros extends EtreVivant {
 		mourir();
 		return true;
 	}
+	public void sEquiper(Arme arme){
+		/*
+
+			System.out.println("Le soldat" + this.nom + "est déjà bien protégé");
+
+			
+			if(e.equals(equipements[0])) {
+				System.out.println("Le soldat" + this.nom + "possède déjà " + e.toString() + "!");
+			}
+			else {
+				ajoutEquipement(e);
+			}
+
+			ajoutEquipement(e);*/
+	}
+	/*private void ajoutEquipement(Equipement equipement) {
+		equipements[nbEquipement] = equipement;
+		System.out.println("Le soldat " + this.nom + " s'équipe avec un " + equipement.toString());
+		nbEquipement++;
+	}*/
 
 }
