@@ -3,7 +3,7 @@ package personnage;
 public class Monstre extends EtreVivant {
 
 	public Monstre() {
-		super(1, 1);
+		super(2, 3);
 
 	}
 
@@ -15,7 +15,7 @@ public class Monstre extends EtreVivant {
 	public void subirAttaque(int dmg) {
 		this.vie -= dmg;
 		if (vie <= 0) {
-			System.out.println("Le monstre meurt");
+			System.out.println("Vous infligez " + dmg + " pts de dégats" + "\nLe monstre meurt");
 		} else {
 			System.out.println("Vous infligez " + dmg + " pts de dégats" + "\nLe monstre possède maintenant "
 					+ this.getVie() + " point de vie");
