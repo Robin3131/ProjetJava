@@ -10,6 +10,8 @@ public class Labyrinthe {
 	protected Piece position;
 	protected Piece sortie;
 	protected Piece lastPosition;
+	protected Piece boutique;
+	
 
 	public Labyrinthe() {
 		Piece P1 = new Piece();
@@ -113,6 +115,7 @@ public class Labyrinthe {
 		this.lastPosition = P13;
 		this.position = P13;
 		this.sortie = P17;
+		this.boutique = P13;
 	}
 
 	public Piece getSortie() {
@@ -136,4 +139,7 @@ public class Labyrinthe {
 		this.lastPosition = lastPosition;
 	}
 
+	public Piece getBoutique() {
+		return boutique;
+	}
 }

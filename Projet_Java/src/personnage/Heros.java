@@ -4,6 +4,7 @@ import affrontement.Combat;
 import equipement.Arme;
 import equipement.Armure;
 import equipement.Potion;
+import labyrinthe.java.Boutique;
 import labyrinthe.java.Labyrinthe;
 import vue.Clavier;
 
@@ -12,7 +13,7 @@ public class Heros extends EtreVivant {
 	private int vieMax;
 	private Arme arme;
 	private Armure armure;
-	private int argent = 0;
+	private int argent = 100000000;
 	private int[] potion = new int[Potion.values().length];
 
 	public Heros() {
@@ -57,6 +58,10 @@ public class Heros extends EtreVivant {
 		this.argent = argent;
 	}
 
+	public int[] getPotion() {
+		return potion;
+	}
+
 	/**
 	 * nomme le heros
 	 */
@@ -86,9 +91,7 @@ public class Heros extends EtreVivant {
 
 	public void fuir(Labyrinthe lab) {
 		System.out.println("Vous fuyez le combat, vous revennez à la pièce précédante");
-		System.out.println("Position actuelle:" + lab.getPosition());
 		lab.setPosition(lab.getLastPosition());
-		System.out.println("Position actuelle:" + lab.getPosition());
 	}
 
 	public void mourir() {
@@ -99,11 +102,11 @@ public class Heros extends EtreVivant {
 	public boolean seDeplacer() {
 		Labyrinthe lab = new Labyrinthe();
 		Combat combat = new Combat();
+		Boutique boutique = new Boutique();
 		int result = 0;
 		while (result != 2) {
-			String txt = "Quelle direction voulez-vous prendre ?\n";
-			txt += "Entrez N pour avancer, S pour reculer, E pour aller à droite, O pour aller à gauche !\n";
-			System.out.println(txt);
+			System.out.println(
+					"Quelle direction voulez-vous prendre ? \nEntrez N pour avancer, S pour reculer, E pour aller à droite, O pour aller à gauche !\n");
 			String reponse = Clavier.entrerClavierString();
 			switch (reponse.toUpperCase()) {
 			case "N":
@@ -163,6 +166,14 @@ public class Heros extends EtreVivant {
 
 			default:
 				System.out.println("Veuillez entrer les bon caractères.");
+			}
+			
+			if(lab.getPosition() == lab.getBoutique() ) {
+				System.out.println("Voulez-vous entrez dans la boutique ? oui ou non");
+				String rep = Clavier.entrerClavierString();
+				if (rep.equalsIgnoreCase("oui")) {
+					boutique.acheter(this);
+				}
 			}
 
 			if (lab.getPosition() == lab.getSortie()) {

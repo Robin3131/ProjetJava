@@ -1,7 +1,7 @@
 package equipement;
 
 public enum Armure {
-	ARMUREC("cuir", 1, 200), ARMUREF("fer", 2, 400), ARMUREO("or", 3, 600), ARMURER("rubis", 4, 800), ARMURED("diamant", 5, 1000);
+	ARMUREC("cuir", 1, 200), ARMUREM("maille", 2, 400), ARMUREF("fer", 3, 600), ARMUREA("acier", 4, 800), ARMURED("diamond", 5, 1000);
 
 	private String nom;
 	private int resistance;

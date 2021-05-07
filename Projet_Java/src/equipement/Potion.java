@@ -1,7 +1,7 @@
 package equipement;
 
 public enum Potion {
-	PPOTION("petite potion", 5, 200), POTION("potion", 7, 400), SPOTION("super potion", 10, 800);
+	PPOTION("Petite potion",5, 200), MPOTION("Moyenne Potion",7, 400), SPOTION("Super potion",10, 800);
 
 	private String nom;
 	private int regen;

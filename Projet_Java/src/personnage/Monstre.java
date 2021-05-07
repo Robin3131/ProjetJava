@@ -3,7 +3,7 @@ package personnage;
 public class Monstre extends EtreVivant {
 
 	public Monstre() {
-		super(3, 3);
+		super(2, 3);
 
 	}
 
