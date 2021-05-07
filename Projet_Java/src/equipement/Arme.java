@@ -1,14 +1,16 @@
 package equipement;
 
 public enum Arme {
-	ARMEB("bois", 1), ARMEO("or", 2), ARMES("saphir", 3), ARMER("rubis", 4), ARMED("diamant", 5);
+	ARMEB("bois", 1, 200), ARMEO("or", 2, 400), ARMES("saphir", 3, 600), ARMER("rubis", 4, 800), ARMED("diamant", 5 , 1000);
 
 	private String nom;
 	private int degats;
+	private int prix;
 
-	Arme(String nom, int degats) {
+	Arme(String nom, int degats, int prix) {
 		this.nom = nom;
 		this.degats = degats;
+		this.prix = prix;
 	}
 
 	public String getNom() {
@@ -17,6 +19,10 @@ public enum Arme {
 
 	public int getDegats() {
 		return degats;
+	}
+	
+	public int getPrix() {
+		return prix;
 	}
 
 	public Arme getArmeSup() {

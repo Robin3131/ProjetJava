@@ -75,6 +75,7 @@ public class Combat {
 		} else {
 			// drop argent
 			System.out.println("money");
+			H.setArgent(H.getArgent() + 100); 
 		}
 	}
 

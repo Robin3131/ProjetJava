@@ -1,14 +1,16 @@
 package equipement;
 
 public enum Armure {
-	ARMUREC("cuir", 2), ARMUREF("fer", 4), ARMUREO("or", 6), ARMURER("rubis", 8), ARMURED("diamant", 10), ARMUREP("plastic", 15);
+	ARMUREC("cuir", 1, 200), ARMUREF("fer", 2, 400), ARMUREO("or", 3, 600), ARMURER("rubis", 4, 800), ARMURED("diamant", 5, 1000);
 
 	private String nom;
 	private int resistance;
+	private int prix;
 
-	Armure(String nom, int resistance) {
+	Armure(String nom, int resistance, int prix) {
 		this.nom = nom;
 		this.resistance = resistance;
+		this.prix = prix;
 	}
 
 	public String getNom() {
@@ -17,6 +19,10 @@ public enum Armure {
 
 	public int getResistance() {
 		return resistance;
+	}
+	
+	public int getPrix() {
+		return prix;
 	}
 
 	public Armure getArmureSup() {
@@ -27,4 +33,5 @@ public enum Armure {
 
 		return Armure.values()[this.ordinal() + 1];
 	}
+	
 }

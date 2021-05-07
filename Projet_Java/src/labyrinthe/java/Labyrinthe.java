@@ -114,11 +114,12 @@ public class Labyrinthe {
 		this.position = P13;
 		this.sortie = P17;
 	}
-	
+
 	public Piece getSortie() {
 		return sortie;
 	}
-	//créer getboutique pour savoir la position de la boutique
+
+	// créer getboutique pour savoir la position de la boutique
 	public Piece getPosition() {
 		return position;
 	}
@@ -130,69 +131,9 @@ public class Labyrinthe {
 	public Piece getLastPosition() {
 		return lastPosition;
 	}
-	
+
 	public void setLastPosition(Piece lastPosition) {
 		this.lastPosition = lastPosition;
 	}
-
-	/*public boolean seDeplacer() {
-		while (true) {
-			String txt = "Quelle direction voulez-vous prendre ?\n";
-			txt += "Entrez N pour avancer, S pour reculer, E pour aller à droite, O pour aller à gauche !\n";
-			System.out.println(txt);
-			String reponse = Clavier.entrerClavierString();
-			switch (reponse.toUpperCase()) {
-			case "N":
-				if (this.position.getNord() != null) {
-					this.lastPosition = this.position;
-					this.position = position.getNord();
-					System.out.println("Vous allez au nord\n");
-				} else {
-					System.out.println("Impossible d'aller dans cette direction");
-				}
-				break;
-			case "S":
-				if (this.position.getSud() != null) {
-					this.lastPosition = this.position;
-					this.position = position.getSud();
-					System.out.println("Vous allez vers le sud\n");
-				} else {
-					System.out.println("Impossible d'aller dans cette direction");
-				}
-				break;
-
-			case "O":
-				if (this.position.getOuest() != null) {
-					this.lastPosition = this.position;
-					this.position = position.getOuest();
-					System.out.println("Vous allez à l'ouest\n");
-				} else {
-					System.out.println("Impossible d'aller dans cette direction");
-				}
-				break;
-
-			case "E":
-				if (this.position.getEst() != null) {
-					this.lastPosition = this.position;
-					System.out.println(this.getPosition());//test
-					this.position = position.getEst();
-					System.out.println("Vous allez à l'est\n");
-				} else {
-					System.out.println("Impossible d'aller dans cette direction");
-				}
-				break;
-
-			default:
-				System.out.println("Veuillez entrer les bon caractères.");
-			}
-
-			if (this.position == this.sortie) {
-				System.out.println("Vous avez gagné !");
-				return false;
-			}
-
-		}
-
-	}*/
 
 }

@@ -7,7 +7,6 @@ public abstract class EtreVivant {
 	public EtreVivant(int vie, int degat) {
 		this.vie = vie;
 		this.degat = degat;
-		degat = 1;
 
 	}
 	public int getVie() {
@@ -18,6 +17,7 @@ public abstract class EtreVivant {
 		this.vie = vie;
 	}
 	
+	
+	
 	public abstract void attaquer (EtreVivant e);
-	public abstract void subirAttaque(int dmg);
 }

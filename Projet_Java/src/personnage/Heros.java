@@ -1,21 +1,23 @@
 package personnage;
 
 import affrontement.Combat;
-import labyrinthe.java.Labyrinthe;
-import vue.Clavier;
 import equipement.Arme;
 import equipement.Armure;
+import equipement.Potion;
+import labyrinthe.java.Labyrinthe;
+import vue.Clavier;
 
 public class Heros extends EtreVivant {
 	private String nom;
 	private int vieMax;
 	private Arme arme;
 	private Armure armure;
+	private int argent = 0;
+	private int[] potion = new int[Potion.values().length];
 
 	public Heros() {
 		super(10, 1);
 		this.vieMax = vie;
-		// this.arme.ordinal();
 	}
 
 	public String getNom() {
@@ -31,7 +33,6 @@ public class Heros extends EtreVivant {
 		this.setVie(vieMax);
 	}
 
-	
 	public void setArme(Arme arme) {
 		this.arme = arme;
 	}
@@ -47,8 +48,17 @@ public class Heros extends EtreVivant {
 	public Armure getArmure() {
 		return armure;
 	}
+
+	public int getArgent() {
+		return argent;
+	}
+
+	public void setArgent(int argent) {
+		this.argent = argent;
+	}
+
 	/**
-	 * nomme le heros 
+	 * nomme le heros
 	 */
 	public void nommerHeros() {
 		System.out.println("Comment voulez vous appeler votre personnage ?");
@@ -58,51 +68,20 @@ public class Heros extends EtreVivant {
 
 	@Override
 	public void attaquer(EtreVivant e) {
-		degat = 1; // On réinitiliase les dégats
-		// if(this.equipement.....)
-		if(Arme.ARMEB.equals(arme)) {
-            degat = degat + 1;
-        }else if(Arme.ARMEO.equals(arme)) {
-        	degat = degat + 2;
-        }else if(Arme.ARMES.equals(arme)) {
-        	degat = degat + 3;
-        }else if(Arme.ARMER.equals(arme)) {
-        	degat = degat + 4;
-        }else if(Arme.ARMED.equals(arme)) {
-        	degat = degat + 5;
-        }
-		System.out.println("\n" + this.getNom() + " attaque le monstre");
-		e.subirAttaque(this.degat);
-	}
-
-	public void subirAttaque(int dmg) {
-		//this.vie -= dmg;
-		 if(Armure.ARMUREC.equals(armure)) {
-			 dmg = dmg-2;
-         }else if(Armure.ARMUREF.equals(armure)) {
-        	 dmg = dmg-4;
-         }else if(Armure.ARMUREO.equals(armure)) {
-        	 dmg = dmg-6;
-         }else if(Armure.ARMURER.equals(armure)) {
-        	 dmg = dmg-8;
-         }else if(Armure.ARMURED.equals(armure)) {
-        	 dmg = dmg-10;
-         }else if(Armure.ARMUREP.equals(armure)) {
-        	 dmg = dmg-12;
-         }else {
-        	 this.vie -= dmg;
-         }
-		//this.setVie(this.vie);
-		
-		//if (vie > 0) {
-		if (dmg < 0) {
-			System.out.println(dmg + "L'armure a bloqué les dégats \nVous avez " + this.getVie() + " point de vie");
-		}else { 
-			this.vie -= dmg;
-			this.setVie(this.vie);
-			System.out.println("Vous subissez " + dmg + " pts de dégats \nIl vous reste " + this.getVie() + " point de vie");
+		int degat = this.degat;
+		if (this.arme != null) {
+			degat = degat + this.arme.getDegats();
 		}
-		
+		System.out.println("\n" + this.getNom() + " attaque le monstre");
+
+		e.setVie(e.getVie() - degat);
+		if (e.getVie() <= 0) {
+			System.out.println("Vous infligez " + degat + " pts de dégats" + "\nLe monstre meurt");
+		} else {
+			System.out.println("Vous infligez " + degat + " pts de dégats" + "\nLe monstre possède maintenant "
+					+ e.getVie() + " point de vie");
+		}
+
 	}
 
 	public void fuir(Labyrinthe lab) {
