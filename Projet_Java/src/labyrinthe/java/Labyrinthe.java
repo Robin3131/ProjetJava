@@ -11,7 +11,9 @@ public class Labyrinthe {
 	protected Piece sortie; // Piece du boss aussi
 	protected Piece lastPosition;
 	protected Piece boutique;
-
+	/**
+	 * Création du labyrinthe 
+	 */
 	public Labyrinthe() {
 		Piece P1 = new Piece();
 		Piece P2 = new Piece();
@@ -29,7 +31,7 @@ public class Labyrinthe {
 		Piece P14 = new Piece();
 		Piece P15 = new Piece();
 		Piece P16 = new Piece();
-		Piece P17 = new Piece();
+		Piece P17 = new Piece();// Sortie du labyrinthe
 		Piece P18 = new Piece();
 		Piece P19 = new Piece();
 		Piece P20 = new Piece();
@@ -116,32 +118,58 @@ public class Labyrinthe {
 		this.sortie = P17;
 		this.boutique = P13;
 	}
-
+	/**
+	 * Retourne la Piece de sortie
+	 * @return object de type Piece
+	 */
 	public Piece getSortie() {
 		return sortie;
 	}
 
-	// créer getboutique pour savoir la position de la boutique
+	/**
+	 * Retourne la positon du joueur (Piece)
+	 * @return object de type Piece
+	 */
 	public Piece getPosition() {
 		return position;
 	}
-
+	
+	/**
+	 * Modifie la position du heros par la position voulue du joueur (passée en paramètre)
+	 * @param position Objet de type piece
+	 */
 	public void setPosition(Piece position) {
 		this.position = position;
 	}
 
+	/**
+	 * Retourne la dernière pièce empruntée par le heros
+	 * @return Objet de type piece
+	 */
 	public Piece getLastPosition() {
 		return lastPosition;
 	}
-
+	
+	/**
+	 * Modifie la position de la dernière pièce empruntée par le heros
+	 * @param lastPosition objet de type pièce	
+	 */
 	public void setLastPosition(Piece lastPosition) {
 		this.lastPosition = lastPosition;
 	}
 
+	/**
+	 * Retourne la position de la boutique
+	 * @return Objet de type piece
+	 */
 	public Piece getBoutique() {
 		return boutique;
 	}
-
+	
+	/**
+	 * Retourne si la pièce actuelle est la salle du boss
+	 * @return True (boolean) si la piece actuelle est la salle du boss
+	 */
 	public boolean pieceBoss() {
 		if (this.position == this.sortie) {
 			return true;
