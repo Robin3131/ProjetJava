@@ -17,7 +17,5 @@ public abstract class EtreVivant {
 		this.vie = vie;
 	}
 	
-	
-	
 	public abstract void attaquer (EtreVivant e);
 }

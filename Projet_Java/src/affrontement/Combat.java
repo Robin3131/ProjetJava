@@ -14,7 +14,8 @@ public class Combat {
 	}
 
 	public void prendrePotion(Heros h) {
-		System.out.println("Entrez le nom de la potion que vous voulez utiliser (exemple pour utiliser la super potion : \"super\"");
+		System.out.println(
+				"Entrez le nom de la potion que vous voulez utiliser (exemple pour utiliser la super potion : \"super\"");
 		System.out.println("Vous avez " + h.getVie() + "pv et vos pv max sont de : " + h.getVieMax());
 		System.out.println("Quel potion voulez-vous utiliser ?");
 		System.out.println("Vous avez " + h.getPotion()[0] + " " + Potion.values()[0].getNom() + " qui soigne de "
@@ -22,7 +23,7 @@ public class Combat {
 		System.out.println("Vous avez " + h.getPotion()[1] + " " + Potion.values()[1].getNom() + " qui soigne de "
 				+ Potion.values()[1].getRegen());
 		System.out.println("Vous avez " + h.getPotion()[2] + " " + Potion.values()[2].getNom() + " qui soigne de "
-				+ Potion.values()[2].getRegen() + "\n") ;
+				+ Potion.values()[2].getRegen() + "\n");
 
 		String choix = Clavier.entrerClavierString();
 		int i;
@@ -56,10 +57,13 @@ public class Combat {
 		}
 	}
 
-	public int battle(Heros h) {
+	public int battle(Heros h, boolean b) {
 		Monstre m = new Monstre();
-		System.out.println("Vous tombez sur un monstre ! Le combat commence.");
-
+		if (b) {
+			m.boss();
+		}else {
+			System.out.println("Vous tombez sur un monstre ! Le combat commence.");
+		}
 		while (m.getVie() > 0) {
 			System.out.println("Quelle action voulez vous faire ?");
 			System.out.println("1. Combattre");

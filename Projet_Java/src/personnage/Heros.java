@@ -13,7 +13,7 @@ public class Heros extends EtreVivant {
 	private int vieMax;
 	private Arme arme;
 	private Armure armure;
-	private int argent = 100000000;
+	private int argent = 10000000;
 	private int[] potion = new int[Potion.values().length];
 
 	public Heros() {
@@ -114,7 +114,7 @@ public class Heros extends EtreVivant {
 					lab.setLastPosition(lab.getPosition());
 					lab.setPosition(lab.getPosition().getNord());
 					System.out.println("Vous allez au nord\n");
-					result = combat.battle(this);
+					result = combat.battle(this, lab.pieceBoss());
 					if (result == 0) {
 						this.fuir(lab);
 					}
@@ -127,7 +127,7 @@ public class Heros extends EtreVivant {
 					lab.setLastPosition(lab.getPosition());
 					lab.setPosition(lab.getPosition().getSud());
 					System.out.println("Vous allez vers le sud\n");
-					result = combat.battle(this);
+					result = combat.battle(this, lab.pieceBoss());
 					if (result == 0) {
 						this.fuir(lab);
 					}
@@ -141,7 +141,7 @@ public class Heros extends EtreVivant {
 					lab.setLastPosition(lab.getPosition());
 					lab.setPosition(lab.getPosition().getOuest());
 					System.out.println("Vous allez à l'ouest\n");
-					result = combat.battle(this);
+					result = combat.battle(this, lab.pieceBoss());
 					if (result == 0) {
 						this.fuir(lab);
 					}
@@ -155,7 +155,7 @@ public class Heros extends EtreVivant {
 					lab.setLastPosition(lab.getPosition());
 					lab.setPosition(lab.getPosition().getEst());
 					System.out.println("Vous allez à l'est\n");
-					result = combat.battle(this);
+					result = combat.battle(this, lab.pieceBoss());
 					if (result == 0) {
 						this.fuir(lab);
 					}
@@ -167,41 +167,24 @@ public class Heros extends EtreVivant {
 			default:
 				System.out.println("Veuillez entrer les bon caractères.");
 			}
-			
-			if(lab.getPosition() == lab.getBoutique() ) {
-				System.out.println("Voulez-vous entrez dans la boutique ? oui ou non");
-				String rep = Clavier.entrerClavierString();
-				if (rep.equalsIgnoreCase("oui")) {
-					boutique.acheter(this);
+			if (this.getVie() > 0) {
+				if (lab.getPosition() == lab.getBoutique()) {
+					System.out.println("Voulez-vous entrez dans la boutique ? oui ou non");
+					String rep = Clavier.entrerClavierString();
+					if (rep.equalsIgnoreCase("oui")) {
+						boutique.acheter(this);
+					}
 				}
-			}
 
-			if (lab.getPosition() == lab.getSortie()) {
-				System.out.println("Vous avez gagné !");
-				return false;
+				if (lab.getPosition() == lab.getSortie()) {
+					System.out.println("Vous avez gagné !");
+					return false;
+				}
 			}
 
 		}
 		mourir();
 		return true;
 	}
-
-	public void sEquiper(Arme arme) {
-		/*
-		 * 
-		 * System.out.println("Le soldat" + this.nom + "est déjà bien protégé");
-		 * 
-		 * 
-		 * if(e.equals(equipements[0])) { System.out.println("Le soldat" + this.nom +
-		 * "possède déjà " + e.toString() + "!"); } else { ajoutEquipement(e); }
-		 * 
-		 * ajoutEquipement(e);
-		 */
-	}
-	/*
-	 * private void ajoutEquipement(Equipement equipement) {
-	 * equipements[nbEquipement] = equipement; System.out.println("Le soldat " +
-	 * this.nom + " s'équipe avec un " + equipement.toString()); nbEquipement++; }
-	 */
 
 }

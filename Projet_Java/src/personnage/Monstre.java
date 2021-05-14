@@ -3,10 +3,26 @@ package personnage;
 public class Monstre extends EtreVivant {
 
 	public Monstre() {
+		
 		super(2, 3);
 
 	}
+	
+	public int getDegat() {
+		return degat;
+	} 
+	
+	public void setDegat(int degat) {
+		this.degat = degat;
+	}
 
+	public void boss() {
+		setVie(20);
+		setDegat(10);
+		System.out.println("Vous tombez sur le boss du labyrinthe ! Le combat commence.");
+		System.out.println("Il a " + getVie() + " pv et il frappe à " + getDegat() );
+	}
+	
 	public void attaquer(EtreVivant e) {
 		System.out.println("\nLe monstre vous attaque");
 		int degat = this.degat;

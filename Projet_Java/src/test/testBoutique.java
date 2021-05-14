@@ -1,7 +1,4 @@
 package test;
-import equipement.Arme;
-import equipement.Armure;
-import equipement.Potion;
 import labyrinthe.java.Boutique;
 import personnage.Heros;
 

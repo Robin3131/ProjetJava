@@ -8,10 +8,9 @@ public class Labyrinthe {
 
 	ArrayList<Piece> cases = new ArrayList<Piece>();
 	protected Piece position;
-	protected Piece sortie;
+	protected Piece sortie; // Piece du boss aussi
 	protected Piece lastPosition;
 	protected Piece boutique;
-	
 
 	public Labyrinthe() {
 		Piece P1 = new Piece();
@@ -141,5 +140,14 @@ public class Labyrinthe {
 
 	public Piece getBoutique() {
 		return boutique;
+	}
+
+	public boolean pieceBoss() {
+		if (this.position == this.sortie) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 }
