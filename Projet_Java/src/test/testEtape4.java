@@ -11,10 +11,9 @@ public class testEtape4 {
 		String choix;
 		boolean res;
 		String choixpartie;
-		do {
-			Heros mec = new Heros();
-			Labyrinthe lab = new Labyrinthe();
-			
+		Heros mec = new Heros();
+		Labyrinthe lab = new Labyrinthe();
+		do {			
 			do {
 				System.out.println("Voulez vous charger une sauvegarde ou créer une partie (Ecrire \"save\" ou \"new\")");
 				choixpartie= Clavier.entrerClavierString();

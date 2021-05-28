@@ -25,7 +25,7 @@ public class Monstre extends EtreVivant {
 	/**Modifie les point de vie et les dégats du monstre pour créer le boss (100 pv, 10 d'attaque)
 	 */
 	public void boss() {
-		setVie(20);
+		setVie(100);
 		setDegat(10);
 		System.out.println("Vous tombez sur le boss du labyrinthe ! Le combat commence.");
 		System.out.println("Il a " + getVie() + " pv et il frappe à " + getDegat() );

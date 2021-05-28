@@ -172,7 +172,7 @@ public class Labyrinthe implements Serializable{
 	 * @return True (boolean) si la piece actuelle est la salle du boss
 	 */
 	public boolean pieceBoss() {
-		if (this.position == this.sortie) {
+		if (this.position.getId() == this.sortie.getId()) {
 			return true;
 		} else {
 			return false;

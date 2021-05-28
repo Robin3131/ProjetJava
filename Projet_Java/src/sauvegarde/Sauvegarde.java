@@ -95,9 +95,3 @@ public class Sauvegarde {
 	   }
 	
 }
-//lance une partie fait un combat ...pause
-//après avoir de l'argent on va a la boutique, on achete , on combat avec les nouveaux équipements
-//montrer dégats augmenter et dégat subit
-//... on se retrouve au boss ... fuit, sauvegarde la partie
-// recharge la partie combat boss, potion... gagner 
-// cas ou le personnage perds
