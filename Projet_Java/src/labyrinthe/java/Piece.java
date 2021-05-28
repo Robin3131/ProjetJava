@@ -1,9 +1,9 @@
 package labyrinthe.java;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
 
-public class Piece implements Serializable{
+public class Piece{
 	protected Piece nord;
 	protected Piece sud;
 	protected Piece est;

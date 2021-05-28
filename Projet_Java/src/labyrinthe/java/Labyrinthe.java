@@ -1,11 +1,11 @@
 package labyrinthe.java;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
 
 import vue.Clavier;
 
-public class Labyrinthe implements Serializable{
+public class Labyrinthe {
 
 	ArrayList<Piece> cases = new ArrayList<Piece>();
 	protected Piece position;

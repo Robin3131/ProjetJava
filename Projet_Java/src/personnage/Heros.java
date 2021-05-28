@@ -1,6 +1,6 @@
 package personnage;
 
-import java.io.Serializable;
+
 
 import affrontement.Combat;
 import equipement.Arme;
@@ -11,7 +11,7 @@ import labyrinthe.java.Labyrinthe;
 import sauvegarde.Sauvegarde;
 import vue.Clavier;
 
-public class Heros extends EtreVivant implements Serializable {
+public class Heros extends EtreVivant  {
 	private String nom;
 	private int vieMax;
 	private Arme arme;
