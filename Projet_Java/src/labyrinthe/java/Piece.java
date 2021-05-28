@@ -1,15 +1,23 @@
 package labyrinthe.java;
 
-public class Piece {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Piece implements Serializable{
 	protected Piece nord;
 	protected Piece sud;
 	protected Piece est;
 	protected Piece ouest;
+	private static ArrayList<Piece> lesPieces = new ArrayList<>();
+	protected int id;
 	/**
 	 * Crée un pièce
 	 * 
 	 */
 	public Piece() {
+		id=lesPieces.size();
+		lesPieces.add(this);
+		
 	}
 
 	/**
@@ -20,6 +28,18 @@ public class Piece {
 		return nord;
 	}
 
+	public static Piece getPieceById(int id) {
+		return lesPieces.get(id);
+	}
+
+	public int getId() {
+		return id;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Numero "+ id;
+	}
 	/**
 	 * Crée un lien avec la pièce du nord passée en paramètre
 	 * @param nord Objet de type piece

@@ -1,19 +1,22 @@
 package personnage;
 
+import java.io.Serializable;
+
 import affrontement.Combat;
 import equipement.Arme;
 import equipement.Armure;
 import equipement.Potion;
 import labyrinthe.java.Boutique;
 import labyrinthe.java.Labyrinthe;
+import sauvegarde.Sauvegarde;
 import vue.Clavier;
 
-public class Heros extends EtreVivant {
+public class Heros extends EtreVivant implements Serializable {
 	private String nom;
 	private int vieMax;
 	private Arme arme;
 	private Armure armure;
-	private int argent = 0;
+	private int argent = 100000;
 	private int[] potion = new int[Potion.values().length];
 
 	/**Créé un héros (10 pv, 1 d'attaque)
@@ -30,6 +33,12 @@ public class Heros extends EtreVivant {
 		return nom;
 	}
 	
+	/**Fonction qui modifies le nom du heros
+	 * @param nom (String)
+	 */
+	public void setNom(String nom) {
+		this.nom=nom;
+	}
 	/**Fonction qui retourne les pv max du héros
 	 * @return int
 	 */
@@ -94,6 +103,9 @@ public class Heros extends EtreVivant {
 		return potion;
 	}
 
+	public void setPotion(int[] potion) {
+		this.potion = potion;
+	}
 	/**Fonction pour nommer le heros 
 	 */
 	public void nommerHeros() {
@@ -138,14 +150,14 @@ public class Heros extends EtreVivant {
 	/**Fonction qui permet au héros de se déplacer dans le labyrinthe
 	 * @return FALSE si le héros sort du labyrinthe sans mourir ou TRUE si le héros meurt
 	 */
-	public boolean seDeplacer() {
-		Labyrinthe lab = new Labyrinthe();
+	public boolean seDeplacer(Labyrinthe lab) {
+		
 		Combat combat = new Combat();
 		Boutique boutique = new Boutique();
 		int result = 0;
 		while (result != 2) {// tant que le héros n'est pas mort (result = 2)
 			System.out.println(
-					"Quelle direction voulez-vous prendre ? \nEntrez N pour avancer, S pour reculer, E pour aller à droite, O pour aller à gauche !\n");
+					"Quelle direction voulez-vous prendre ? \nEntrez N pour avancer, S pour reculer, E pour aller à droite, O pour aller à gauche !\nPour sauvegarder ecrire \"SAVE\"");
 			String reponse = Clavier.entrerClavierString();
 			switch (reponse.toUpperCase()) {
 			case "N":
@@ -203,7 +215,11 @@ public class Heros extends EtreVivant {
 					System.out.println("Impossible d'aller dans cette direction");
 				}
 				break;
-
+			case "SAVE":
+				System.out.println("sauvegarde"); 
+				Sauvegarde save = new Sauvegarde();
+				save.sauvegardejeu(lab,this);
+				break;
 			default://choix de direction incorrect
 				System.out.println("Veuillez entrer les bon caractères.");
 			}
