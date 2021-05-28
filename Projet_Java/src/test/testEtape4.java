@@ -15,23 +15,27 @@ public class testEtape4 {
 			Heros mec = new Heros();
 			mec.nommerHeros();
 			Labyrinthe lab = new Labyrinthe();
-			System.out.println("Voulez vous charger une sauvegarde ou créer une partie (Ecrire \"save\" ou \"new\")");
+			
 			do {
-				choixpartie= Clavier.entrerClavierString().toUpperCase();
+				System.out.println("Voulez vous charger une sauvegarde ou créer une partie (Ecrire \"save\" ou \"new\")");
+				choixpartie= Clavier.entrerClavierString();
+				choixpartie=choixpartie.toUpperCase();
 				switch(choixpartie) {
 					case "SAVE":
 						Sauvegarde save = new Sauvegarde();
-						save.recupSauvegarde(lab,mec);
+						choixpartie=save.recupSauvegarde(lab,mec);
 						break;
 					case "NEW":
 						System.out.println("création d'un nouvelle partie");
+						choixpartie="3";
 						break;
 					default :
 						System.out.println("Veuillez entrer un choix valide :)");
 						break;
 				}
-				res = mec.seDeplacer(lab);
-			}while(choixpartie!="SAVE" || choixpartie!="NEW");
+			}while (choixpartie!="3");
+			
+			res = mec.seDeplacer(lab);
 			
 			if (res) {
 				System.out.println("vous avez perdu!");

@@ -13,46 +13,53 @@ public class Boutique {
 	 */
 	public void afficherChoix() {
 		int i;
+		boolean res=true;
 		System.out.println("Que voulez achetez ?");
 		System.out.println(
 				"Tapez arme pour afficher les armes, tapez armure pour afficher les armures ou tapez potion pour afficher les potions");
-		// récupère le choix de l'utilisateur (affichage potion ou armure ou arme)
-		String choix = Clavier.entrerClavierString();
-		switch (choix.toLowerCase()) {// selon le choix affiche tout les types d'objets
-		//affichage des armes
-		case "arme" :
-			for (i = 0; i < Arme.values().length; i++) {
+		do {
+			// récupère le choix de l'utilisateur (affichage potion ou armure ou arme)
+			String choix = Clavier.entrerClavierString();
+			switch (choix.toLowerCase()) {// selon le choix affiche tout les types d'objets
+			//affichage des armes
+			case "arme" :
+				res=true;
+				for (i = 0; i < Arme.values().length; i++) {
+					System.out.println(
+							"Epée en " + Arme.values()[i].getNom() + " de puissance " + Arme.values()[i].getDegats());
+					System.out.println("Prix : " + Arme.values()[i].getPrix() + "\n");
+				}
 				System.out.println(
-						"Epée en " + Arme.values()[i].getNom() + " de puissance " + Arme.values()[i].getDegats());
-				System.out.println("Prix : " + Arme.values()[i].getPrix() + "\n");
+						"Quel arme voulez-vous achetez ? Ecrivez le type de l'arme que vous voulez \n(exemple : pour épée en bois ecrire \"bois\")");
+				break;
+			//affichage des armures
+			case "armure":
+				res=true;
+				for (i = 0; i < Armure.values().length; i++) {
+					System.out.println("Armure en " + Armure.values()[i].getNom() + " de résistance "
+							+ Armure.values()[i].getResistance());
+					System.out.println("Prix : " + Armure.values()[i].getPrix() + "\n");
+				}
+				System.out.println(
+						"Quel armure voulez-vous achetez ? Ecrivez le type de l'armure que vous voulez \n(exemple : pour armure en cuir ecrire \"cuir\")");
+				break;
+			//affichage des potions
+			case "potion":
+				res=true;
+				for (i = 0; i < Potion.values().length; i++) {
+					System.out.println(Potion.values()[i].getNom() + " de soin " + Potion.values()[i].getRegen() + "pv");
+					System.out.println("Prix : " + Potion.values()[i].getPrix() + "\n");
+				}
+				System.out.println(
+						"Quel potion voulez-vous achetez ? Ecrivez la puissance de la potion que vous voulez \n(exemple : pour une petite potion de soin 5 ecrire \"petite\")");
+				break;
+			//Choix utilisteur invalide
+			default:
+				res=false;
+				System.out.println("Entrez un choix valide");
+				break;
 			}
-			System.out.println(
-					"Quel arme voulez-vous achetez ? Ecrivez le type de l'arme que vous voulez \n(exemple : pour épée en bois ecrire \"bois\")");
-			break;
-		//affichage des armures
-		case "armure":
-			for (i = 0; i < Armure.values().length; i++) {
-				System.out.println("Armure en " + Armure.values()[i].getNom() + " de résistance "
-						+ Armure.values()[i].getResistance());
-				System.out.println("Prix : " + Armure.values()[i].getPrix() + "\n");
-			}
-			System.out.println(
-					"Quel armure voulez-vous achetez ? Ecrivez le type de l'armure que vous voulez \n(exemple : pour armure en cuir ecrire \"cuir\")");
-			break;
-		//affichage des potions
-		case "potion":
-			for (i = 0; i < Potion.values().length; i++) {
-				System.out.println(Potion.values()[i].getNom() + " de soin " + Potion.values()[i].getRegen() + "pv");
-				System.out.println("Prix : " + Potion.values()[i].getPrix() + "\n");
-			}
-			System.out.println(
-					"Quel potion voulez-vous achetez ? Ecrivez la puissance de la potion que vous voulez \n(exemple : pour une petite potion de soin 5 ecrire \"petite\")");
-			break;
-		//Choix utilisteur invalide
-		default:
-			System.out.println("Entrez un nombre valide");
-			break;
-		}
+		}while(!res); 
 
 	}
 	/**

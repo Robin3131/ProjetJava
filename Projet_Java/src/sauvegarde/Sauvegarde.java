@@ -22,7 +22,7 @@ public class Sauvegarde {
 	private static int argent;
 	private static int[] potion;
 	private static int superpotion;
-	public static void sauvegardejeu(Labyrinthe lab,Heros heros) {
+	public static int sauvegardejeu(Labyrinthe lab,Heros heros) {
       try {
          
          // Création d'un nouveau flux qui crée un fichier binaire
@@ -53,8 +53,9 @@ public class Sauvegarde {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+      return 3;
    }
-	public static void recupSauvegarde(Labyrinthe lab,Heros heros) {
+	public static String recupSauvegarde(Labyrinthe lab,Heros heros) {
 	      try {
 	         
 	         // Création d'un nouveau flux qui lit un fichier binaire
@@ -104,17 +105,19 @@ public class Sauvegarde {
 				
 				entree2.close();
 				entree.close();
-			} catch (ClassNotFoundException e) {
+	         } catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}	
+	         }	
 	         
 	      	}catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	        
+	      return "3";// quitter la boucle du main
 	   }
+	
 }
 //lance une partie fait un combat ...pause
 //après avoir de l'argent on va a la boutique, on achete , on combat avec les nouveaux équipements

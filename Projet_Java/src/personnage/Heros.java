@@ -155,9 +155,9 @@ public class Heros extends EtreVivant implements Serializable {
 		Combat combat = new Combat();
 		Boutique boutique = new Boutique();
 		int result = 0;
-		while (result != 2) {// tant que le héros n'est pas mort (result = 2)
+		while (result != 2 && result != 3) {// tant que le héros n'est pas mort (result = 2)
 			System.out.println(
-					"Quelle direction voulez-vous prendre ? \nEntrez N pour avancer, S pour reculer, E pour aller à droite, O pour aller à gauche !\nPour sauvegarder ecrire \"SAVE\"");
+					"Quelle direction voulez-vous prendre ? \nEntrez N pour avancer, S pour reculer, E pour aller à droite, O pour aller à gauche !\nPour sauvegarder ecrire \"save\", pour quitter ecrire \"quit\" ");
 			String reponse = Clavier.entrerClavierString();
 			switch (reponse.toUpperCase()) {
 			case "N":
@@ -218,14 +218,17 @@ public class Heros extends EtreVivant implements Serializable {
 			case "SAVE":
 				System.out.println("sauvegarde"); 
 				Sauvegarde save = new Sauvegarde();
-				save.sauvegardejeu(lab,this);
+				result=save.sauvegardejeu(lab,this);
+				break;
+			case "QUIT":
+				result=3;
 				break;
 			default://choix de direction incorrect
 				System.out.println("Veuillez entrer les bon caractères.");
 			}
 			if (this.getVie() > 0) {//Si le héros est en vie
 				//si le héros est à l'entrée du labyrinthe il peut accéder à la boutique
-				if (lab.getPosition() == lab.getBoutique()) {
+				if (lab.getPosition() == lab.getBoutique() && result !=3) {
 					System.out.println("Voulez-vous entrez dans la boutique ? oui ou non");
 					String rep = Clavier.entrerClavierString();
 					if (rep.equalsIgnoreCase("oui")) {
@@ -233,15 +236,18 @@ public class Heros extends EtreVivant implements Serializable {
 					}
 				}
 				//si le héros est à la sortie du labyrinthe il a gagné
-				if (lab.getPosition() == lab.getSortie()) {
+				if (lab.getPosition() == lab.getSortie() && result !=3) {
 					System.out.println("Vous avez gagné !");
 					return false;
 				}
 			}
 
 		}
-		mourir();
-		return true;
+		if(result==2) {
+			mourir();
+			return true;
+		}
+		return false;
 	}
 
 }
