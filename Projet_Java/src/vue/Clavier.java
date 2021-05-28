@@ -1,5 +1,6 @@
 package vue;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -19,7 +20,14 @@ public class Clavier {
 	     *@return int
 	     */
 	    public static int entrerClavierInt() {
-	        return scanner.nextInt();
+	    	try {
+	    		return scanner.nextInt();
+	    	}catch(InputMismatchException e) {
+	    		 System.out.println(scanner.next());
+	    	    	System.out.println("Vous devez entrer un entier");
+	    	    	 return Clavier.entrerClavierInt();
+	    	    }
+	        
 	    }
 
 	
