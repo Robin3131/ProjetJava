@@ -2,7 +2,7 @@ package test;
 
 import affrontement.Combat;
 
-
+// test de la fonction random
 public class Testrandom {
 	public static void main(String[] args) {
 		Combat combat = new Combat();

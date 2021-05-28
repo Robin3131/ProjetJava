@@ -16,7 +16,7 @@ public class Heros extends EtreVivant implements Serializable {
 	private int vieMax;
 	private Arme arme;
 	private Armure armure;
-	private int argent = 100000;
+	private int argent = 0;
 	private int[] potion = new int[Potion.values().length];
 
 	/**Créé un héros (10 pv, 1 d'attaque)

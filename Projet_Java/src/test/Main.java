@@ -5,7 +5,7 @@ import personnage.Heros;
 import sauvegarde.Sauvegarde;
 import vue.Clavier;
 
-public class testEtape4 {
+public class Main {
 
 	public static void main(String[] args) {
 		String choix;
