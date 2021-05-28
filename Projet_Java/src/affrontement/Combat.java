@@ -79,12 +79,12 @@ public class Combat {
 		if (salleboss) {//vérification salle du boss
 			m.boss();
 		}else {
-			System.out.println("Vous tombez sur un monstre ! Le combat commence.");
+			System.out.println("ATTENTIONNNN ! Vous tombez sur un monstre, Le combat commence !");
 		}
 		
 		
 		while (m.getVie() > 0) {//tant que le monstre est en vie et que le heros n'a pas fuit on continue le combat
-			System.out.println("Quelle action voulez vous faire ?");
+			System.out.println("\nQuelle action voulez vous faire ?");
 			System.out.println("1. Combattre");
 			System.out.println("2. Fuir");
 			if (h.getVie() != h.getVieMax()) {
@@ -98,7 +98,6 @@ public class Combat {
 				return 0;
 			}
 			if (temp == 1) {
-				System.out.println("Vous choississez de combattre");
 				int num = choixAttaquant();
 				if (num == 1) {
 					h.attaquer(m);
@@ -122,7 +121,7 @@ public class Combat {
 	 */
 	public void gagnerCombat(Heros h) {
 		h.setVieMax((h.getVieMax() + 1));
-		System.out.println("Vous avez gagné le combat ! \nVous avez maintenant " + h.getVie() + " point de vie");
+		System.out.println("\nEt...Vous avez gagné le combat, vous avez maintenant " + h.getVie() + " point de vie !");
 		herosDrop(h);
 	}
 	/**
@@ -137,7 +136,7 @@ public class Combat {
 			} else {
 				H.setArmure(H.getArmure().getArmureSup()); // Si il a déjà une armure passe à l'armure supérieure
 			}
-			System.out.println("Ce montre viens de vous dropper une armure");
+			System.out.println("EXCEPTIONNEL !!!! Ce montre viens de vous dropper une armure");
 		}
 		else if (randomDrop(1, 12)) {	// Cas drop d'une arme 1 chance sur 12
 			if (H.getArme() == null) {// si il ne possède pas d'arme il récupère une arme en bois
@@ -145,10 +144,10 @@ public class Combat {
 			} else {
 				H.setArme(H.getArme().getArmeSup());// Si il a déjà une arme passe à l'arme supérieure
 			}
-			System.out.println("Ce montre viens de vous dropper une arme");
+			System.out.println("MAGNIFIQUE !!!! Ce montre viens de vous dropper une arme");
 		} 
 		else {//Cas drop d'argent 5 chance sur 6
-			System.out.println("Vous appercevez 100 pièces d'or à coté du corps du monstre que vous ramassez");
+			System.out.println("\nDe plus, vous appercevez 100 pièces d'or à coté du corps du monstre que vous ramassez\n");
 			H.setArgent(H.getArgent() + 100);
 		}
 	}

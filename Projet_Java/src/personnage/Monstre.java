@@ -36,7 +36,7 @@ public class Monstre extends EtreVivant {
 	 * @param e (type "EtreVivant") heros cible de l'attaque
 	 */
 	public void attaquer(EtreVivant e) {
-		System.out.println("\nLe monstre vous attaque");
+		System.out.println("\nVous choississez de combattre et le monstre vous attaque");
 		int degat = this.degat;
 		if (e instanceof Heros) {
 			Heros h = (Heros) e;
@@ -45,15 +45,15 @@ public class Monstre extends EtreVivant {
 			}
 
 			if (degat < 0) {//Cas ou les dégats sont entièrement bloqués
-				System.out.println("L'armure a bloqué les dégats \nVous avez " + h.getVie() + " point de vie");
+				System.out.println("L'armure a bloqué les dégats.... La chance !Vous avez encore" + h.getVie() + " point de vie");
 			} else {//Inflige les dégats au héros
 				h.setVie(h.getVie() - degat);
 				if(h.getVie()>0) {//Affichage si le heros ne meurt pas
 					System.out.println(
-							"Vous subissez " + degat + " pts de dégats \nIl vous reste " + h.getVie() + " point de vie");
+							"Vous subissez " + degat + " pts de dégats. Il vous reste " + h.getVie() + " point de vie");
 				}else {//Affichage si le heros meurt
 					System.out.println(
-							"Vous subissez " + degat + " pts de dégats \nVous mourez!");
+							"Vous subissez " + degat + " pts de dégats..... Vous mourez!");
 				}
 				
 			}

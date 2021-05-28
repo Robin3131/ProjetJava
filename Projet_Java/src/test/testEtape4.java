@@ -8,12 +8,11 @@ import vue.Clavier;
 public class testEtape4 {
 
 	public static void main(String[] args) {
-		int choix;
+		String choix;
 		boolean res;
 		String choixpartie;
 		do {
 			Heros mec = new Heros();
-			mec.nommerHeros();
 			Labyrinthe lab = new Labyrinthe();
 			
 			do {
@@ -26,23 +25,25 @@ public class testEtape4 {
 						choixpartie=save.recupSauvegarde(lab,mec);
 						break;
 					case "NEW":
-						System.out.println("création d'un nouvelle partie");
+						mec.nommerHeros();
+						System.out.println("\n*********Création d'un nouvelle partie*********\n");
 						choixpartie="3";
 						break;
 					default :
 						System.out.println("Veuillez entrer un choix valide :)");
 						break;
 				}
-			}while (choixpartie!="3");
+			}while (!choixpartie.equalsIgnoreCase("3"));
 			
 			res = mec.seDeplacer(lab);
 			
 			if (res) {
-				System.out.println("vous avez perdu!");
+				System.out.println("Vous avez perdu!");
 			}
-			System.out.println("Pour recommencer la partie, entrer 1\nPour quitter le jeu, entrer 2  ");
-			choix = Clavier.entrerClavierInt();
-		} while (choix != 2);
+			System.out.println("Pour recommencer la partie, entrer \"R\"\nPour quitter le jeu, entrer \"Q\" ");
+			choix = Clavier.entrerClavierString();
+			choix=choix.toUpperCase();
+		} while (!choix.equalsIgnoreCase("Q"));
 		System.out.println("Merci d'avoir joué !");
 	}
 }

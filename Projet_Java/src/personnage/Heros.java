@@ -109,9 +109,9 @@ public class Heros extends EtreVivant implements Serializable {
 	/**Fonction pour nommer le heros 
 	 */
 	public void nommerHeros() {
-		System.out.println("Comment voulez vous appeler votre personnage ?");
+		System.out.println("\nComment voulez vous appeler votre personnage ?");
 		this.nom = Clavier.entrerClavierString();
-		System.out.println("Bienvenue dans le labyrinthe " + getNom());
+		System.out.println("\n*********Bienvenue dans le labyrinthe " + getNom()+"*********");
 	}
 	
 	/**Fonction qui inflige des dégats à l'être vivant passé en paramètre en fonction de l'arme du héros
@@ -123,13 +123,11 @@ public class Heros extends EtreVivant implements Serializable {
 		if (this.arme != null) {//si le héros a une arme
 			degat = degat + this.arme.getDegats();
 		}
-		System.out.println("\n" + this.getNom() + " attaque le monstre");
-
 		e.setVie(e.getVie() - degat);
 		if (e.getVie() <= 0) {//si le monstre est mort
-			System.out.println("Vous infligez " + degat + " pts de dégats" + "\nLe monstre meurt");
+			System.out.println("Vous choississez de combattre et vous infligez " + degat + " pts de dégats" + ", Le monstre meurt");
 		} else {
-			System.out.println("Vous infligez " + degat + " pts de dégats" + "\nLe monstre possède maintenant "
+			System.out.println("Vous choississez de combattre et vous infligez " + degat + " pts de dégats." + "\nMalheuresement le combat n'est pas fini et le monstre possède encore "
 					+ e.getVie() + " point de vie");
 		}
 
@@ -157,7 +155,7 @@ public class Heros extends EtreVivant implements Serializable {
 		int result = 0;
 		while (result != 2 && result != 3) {// tant que le héros n'est pas mort (result = 2)
 			System.out.println(
-					"Quelle direction voulez-vous prendre ? \nEntrez N pour avancer, S pour reculer, E pour aller à droite, O pour aller à gauche !\nPour sauvegarder ecrire \"save\", pour quitter ecrire \"quit\" ");
+					"Quelle direction voulez-vous prendre ? \nEntrez : \nN pour aller au Nord \nS pour aller au Sud \nE pour aller à l'est\nO pour aller à l'ouest !\n\nSi vous voulez sauvegarder ecrire \"save\" vous pouvez aussi quitter avec \"quit\" ");
 			String reponse = Clavier.entrerClavierString();
 			switch (reponse.toUpperCase()) {
 			case "N":
